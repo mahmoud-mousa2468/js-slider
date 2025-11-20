@@ -5,15 +5,28 @@ var left = document.querySelector(".left")
 var right = document.querySelector(".right")
 var imageIndex;//variable to put clicked image index in
 var wideImage = document.querySelector(".imgSlider")
-// for loop to show the slider if any image click and show it in the slide and put clicked image index in variable imageIndex
-for (let i = 0; i < imagesList.length; i++) {
-    imagesList[i].addEventListener("click", function (e) {
+var imagesContent=document.querySelector(".imagesContent")
+
+imagesContent.addEventListener("click",function(e){
+    if(e.target.tagName=="IMG"){
         imageIndex = imagesList.indexOf(e.target)
         const currentSrc = e.target.getAttribute("src")
         popUpDiv.classList.replace("d-none", "d-flex")
         wideImage.style.backgroundImage = `url(${currentSrc})`
-    })
-}
+    }
+})
+
+// for loop to show the slider if any image click and show it in the slide and put clicked image index in variable imageIndex
+// for (let i = 0; i < imagesList.length; i++) {
+//     imagesList[i].addEventListener("click", function (e) {
+//         imageIndex = imagesList.indexOf(e.target)
+//         const currentSrc = e.target.getAttribute("src")
+//         popUpDiv.classList.replace("d-none", "d-flex")
+//         wideImage.style.backgroundImage = `url(${currentSrc})`
+//     })
+// }
+
+
 // to close the slider if i clicked the popUpDiv
 document.addEventListener("click", function (e) {
     if (e.target == popUpDiv) {
